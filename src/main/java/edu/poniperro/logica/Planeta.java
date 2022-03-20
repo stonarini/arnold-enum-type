@@ -1,5 +1,7 @@
 package edu.poniperro.logica;
 
+import java.util.EnumSet;
+
 public enum Planeta {
 
 	MERCURY(3.303e+23, 2.4397e6),
@@ -42,5 +44,13 @@ public enum Planeta {
 
 	public double pesoSuperficie(double peso) {
 		return masaEnEARTH(peso) * gravedadEnSuperficie();
+	}
+
+	public static EnumSet<Planeta> getPlanetasTerrestres() {
+		return EnumSet.range(Planeta.MERCURY, Planeta.MARS);
+	}
+
+	public static EnumSet<Planeta> getGigantesGaseosos() {
+		return EnumSet.complementOf(Planeta.getPlanetasTerrestres());
 	}
 }
