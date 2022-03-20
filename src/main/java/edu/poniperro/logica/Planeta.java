@@ -19,4 +19,11 @@ public enum Planeta {
 		this.radio = radio;
 	}
 
+	public double getMasa() {
+		return this.masa;
+	}
+
+	public double getRadio() {
+		return this.radio;
+	}
 }
