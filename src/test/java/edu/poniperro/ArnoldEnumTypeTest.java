@@ -31,9 +31,9 @@ public class ArnoldEnumTypeTest {
 		assertThat(planeta.ordinal()).isEqualTo(0);
 		assertThat(planeta.name()).isEqualToIgnoringWhitespace("MERCURY");
 		assertThat(Planeta.valueOf(planeta.name())).isEqualTo(Planeta.MERCURY);
-		assertThat(planeta.compareTo(planeta.MERCURY)).isEqualTo(0);
+		assertThat(planeta.compareTo(planeta)).isEqualTo(0);
 		assertThat(planeta.toString()).isEqualToIgnoringWhitespace("MERCURY");
-		assertThat(planeta.equals(planeta.MERCURY)).isEqualTo(true);
+		assertThat(planeta.equals(planeta)).isEqualTo(true);
 		assertThat(Planeta.values()[0]).isEqualTo(planeta);
 	}
 
@@ -52,7 +52,7 @@ public class ArnoldEnumTypeTest {
 	@Test
 	public void PlanetaNamesIteratorTest() {
 		for (Planeta planeta : Planeta.values()) {
-			assertThat(planeta.name()).isIn(planetas);
+			assertThat(planeta.name()).isIn((Object[]) planetas);
 		}
 	}
 
@@ -60,7 +60,7 @@ public class ArnoldEnumTypeTest {
 	public void PesoSuperficieMercurioTest() {
 		Planeta planeta = Planeta.MERCURY;
 		double pesoHumano = 175;
-		assertEquals(66.107583, planeta.MERCURY.pesoSuperficie(pesoHumano), 0.001);
+		assertEquals(66.107583, planeta.pesoSuperficie(pesoHumano), 0.001);
 	}
 
 	@Test
@@ -76,7 +76,7 @@ public class ArnoldEnumTypeTest {
 		assertThat(planetasIncluidos).isEqualTo(4);
 
 		for (Planeta planeta : Planeta.getPlanetasTerrestres()) {
-			assertThat(planeta.name()).isIn(planetasTerrestres);
+			assertThat(planeta.name()).isIn((Object[]) planetasTerrestres);
 		}
 	}
 
@@ -95,7 +95,7 @@ public class ArnoldEnumTypeTest {
 		assertThat(planetasIncluidos).isEqualTo(4);
 
 		for (Planeta planeta : Planeta.getGigantesGaseosos()) {
-			assertThat(planeta.name()).isIn(gigantesGaseosos);
+			assertThat(planeta.name()).isIn((Object[]) gigantesGaseosos);
 		}
 	}
 
