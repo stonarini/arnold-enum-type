@@ -40,7 +40,7 @@ public enum Planeta {
 		return peso / this.gravedadEnSuperficiePlaneta(EARTH);
 	}
 
-	public double pesoEnSuperficie(double peso) {
+	public double pesoSuperficie(double peso) {
 		return masaEnEARTH(peso) * gravedadEnSuperficie();
 	}
 }
